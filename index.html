@@ -1,0 +1,2130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="csrf-token-name" content="csrf_test_name">
+  <meta name="csrf-token-value" content="9b0cef64221deb254c5adf55e30a1fea">
+  <title>Uptalk | Suraj — Tech Sales Coach</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #F4CE5D;
+      --primary-dark: #E8B844;
+      --primary-glow: rgba(244, 206, 93, 0.15);
+      --dark-bg: #0f1629;
+      --dark-bg-2: #1a2138;
+      --light-bg: #f7f8fc;
+      --text-dark: #1a1f3a;
+      --text-light: #6b7280;
+      --text-muted: #9ca3af;
+      --border-color: #e5e7eb;
+      --border-light: #f0f1f5;
+      --accent: #F4CE5D;
+      --card-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 6px 24px rgba(0,0,0,0.04);
+      --card-shadow-hover: 0 8px 40px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
+      --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body {
+      background: var(--light-bg);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--text-dark);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .header, .vsn_footer_container__DDGLH {
+      display: none;
+    }
+
+    /* MAIN LAYOUT */
+    .uptalk_profile_page_dashboard {
+      max-width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      min-height: 100vh;
+    }
+
+    /* HEADER SECTION */
+    .uptalk_profile26_sidebar {
+      background: var(--dark-bg);
+      position: relative;
+      overflow: hidden;
+      padding: 3rem 2rem 2.5rem;
+    }
+
+    .uptalk_profile26_sidebar::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(244,206,93,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .uptalk_profile26_sidebar::after {
+      content: "";
+      position: absolute;
+      bottom: -40%;
+      left: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(99,102,241,0.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .uptalk_profile26_sidebar_inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.75rem;
+      align-items: center;
+    }
+
+    .uptalk_profile26_avatar_wrap {
+      position: relative;
+      display: inline-block;
+    }
+
+    .uptalk_profile26_avatar {
+      width: 112px;
+      height: 112px;
+      object-fit: cover;
+      border: 3px solid rgba(244,206,93,0.4);
+      box-shadow: 0 0 0 6px rgba(244,206,93,0.08), 0 16px 40px rgba(0,0,0,0.3);
+      border-radius: 50%;
+      transition: transform 0.4s var(--transition-smooth);
+    }
+
+    .uptalk_profile26_avatar:hover {
+      transform: scale(1.04);
+    }
+
+    .uptalk_profile26_verified_badge {
+      position: absolute;
+      bottom: 4px;
+      right: 0;
+      background: var(--primary-color);
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(244,206,93,0.3);
+      border-radius: 50%;
+      border: 3px solid var(--dark-bg);
+    }
+
+    .uptalk_profile26_verified_badge i {
+      color: var(--dark-bg) !important;
+      font-size: 1rem !important;
+    }
+
+    .profile_info_center {
+      flex: 1;
+    }
+
+    .uptalk_profile26_name_row {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 0.4rem;
+    }
+
+    .uptalk_profile26_name {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.03em;
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .uptalk_profile26_bio {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.6);
+      margin: 0.5rem 0 1rem 0;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+
+    .uptalk_profile26_badge_grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 0;
+    }
+
+    .uptalk_profile26_badge {
+      background: rgba(255,255,255,0.05);
+      padding: 5px 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: 500;
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      transition: all 0.25s var(--transition-smooth);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      backdrop-filter: blur(4px);
+    }
+
+    .uptalk_profile26_badge i {
+      color: var(--primary-color);
+      font-size: 0.65rem;
+    }
+
+    .uptalk_profile26_badge:hover {
+      background: rgba(244,206,93,0.1);
+      border-color: rgba(244,206,93,0.2);
+      color: var(--primary-color);
+      transform: translateY(-1px);
+    }
+
+    .uptalk_profile26_show_more {
+      background: rgba(244,206,93,0.1);
+      border-color: rgba(244,206,93,0.2);
+      color: var(--primary-color);
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .uptalk_profile26_hidden_badges {
+      display: none;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    .uptalk_profile26_hidden_badges.show {
+      display: flex;
+    }
+
+    /* TABS SECTION */
+    .uptalk_profile_page_tabs_wrapper {
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(14px);
+      padding: 1.1rem 2rem 0;
+      margin: 0;
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      border-bottom: 1px solid rgba(15,22,41,0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.55rem;
+      width: 100%;
+      border-radius: 24px 24px 0 0;
+    }
+
+    .uptalk_profile_page_tabs_wrapper::-webkit-scrollbar {
+      height: 0;
+    }
+
+    .profile_section_nav_eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .profile_section_nav_title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      letter-spacing: -0.03em;
+      margin: 0;
+    }
+
+    .profile_section_nav_subtitle {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .uptalk_profile_page_tabs_scroll_btn {
+      display: none;
+    }
+
+    .uptalk_profile_page_tabs_scroll_btn:hover {
+      color: var(--text-dark);
+      background: var(--light-bg);
+    }
+
+    .uptalk_profile_page_tabs_scroll_btn.disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .uptalk_profile_page_tabs_container {
+      width: 100%;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .uptalk_profile_page_tabs_container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .uptalk_profile_page_tabs {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: nowrap;
+      min-width: min-content;
+      padding-bottom: 0.05rem;
+    }
+
+    .uptalk_profile_page_tab {
+      padding: 0.2rem 0 0.95rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s var(--transition-smooth);
+      white-space: nowrap;
+      flex-shrink: 0;
+      letter-spacing: -0.01em;
+      position: relative;
+    }
+
+    .uptalk_profile_page_tab i {
+      margin-right: 0.45rem;
+      font-size: 0.82rem;
+      opacity: 0.75;
+    }
+
+    .uptalk_profile_page_tab:hover {
+      color: var(--text-dark);
+    }
+
+    .uptalk_profile_page_tab::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      border-radius: 999px;
+      background: transparent;
+      transform: scaleX(0.35);
+      transform-origin: left center;
+      transition: all 0.25s var(--transition-smooth);
+    }
+
+    .uptalk_profile_page_tab_active {
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+
+    .uptalk_profile_page_tab_active:hover {
+      color: var(--text-dark);
+    }
+
+    .uptalk_profile_page_tab_active::after {
+      background: var(--primary-color);
+      transform: scaleX(1);
+    }
+
+    .uptalk_profile_page_tab:hover::after {
+      background: rgba(244, 206, 93, 0.4);
+      transform: scaleX(1);
+    }
+
+    /* CONTENT SECTIONS */
+    .uptalk_profile26_tab_contents {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      width: 100%;
+      background:
+        radial-gradient(circle at top right, rgba(244,206,93,0.08), transparent 22%),
+        linear-gradient(180deg, rgba(247,248,252,0.7) 0%, rgba(255,255,255,0) 30%);
+    }
+
+    .uptalk_profile26_tab_panel {
+      display: none;
+      animation: fadeIn 0.4s var(--transition-smooth);
+    }
+
+    .uptalk_profile26_tab_panel.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .tab_content_card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.75rem;
+      margin-bottom: 1.25rem;
+      border: 1px solid var(--border-light);
+      transition: all 0.3s var(--transition-smooth);
+      box-shadow: var(--card-shadow);
+    }
+
+    .tab_content_card:hover {
+      box-shadow: var(--card-shadow-hover);
+      transform: translateY(-2px);
+    }
+
+    .tab_content_title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .tab_content_title i {
+      color: var(--primary-color);
+      font-size: 0.9rem;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary-glow);
+      border-radius: 10px;
+    }
+
+    .tab_content_text {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-light);
+    }
+
+    .skill_tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .skill_tag {
+      background: var(--light-bg);
+      padding: 8px 16px;
+      border-radius: 10px;
+      font-size: 0.8rem;
+      color: var(--text-dark);
+      border: 1px solid var(--border-light);
+      font-weight: 500;
+      transition: all 0.2s var(--transition-smooth);
+    }
+
+    .skill_tag:hover {
+      background: var(--primary-glow);
+      border-color: rgba(244,206,93,0.3);
+      color: var(--dark-bg);
+      transform: translateY(-1px);
+    }
+
+    /* RIGHT COLUMN */
+    .uptalk_profile_page_right {
+      flex: 1;
+      background: var(--light-bg);
+      position: relative;
+    }
+
+    .uptalk_profile_page_services {
+      width: 100%;
+      padding: 1.5rem 2rem 0.75rem;
+    }
+
+    .services_intro {
+      max-width: 1200px;
+      margin: 0 auto 1.25rem;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .services_intro_text h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin: 0 0 0.3rem;
+      letter-spacing: -0.03em;
+    }
+
+    .services_intro_text p {
+      margin: 0;
+      color: var(--text-light);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .profile_section_shell {
+      max-width: 1200px;
+      margin: -0.5rem auto 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, #ffffff 100%);
+      border: 1px solid rgba(15,22,41,0.06);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 48px rgba(15,22,41,0.05);
+    }
+
+    .uptalk_profile_page_services_tabs_wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 2rem;
+      background: white;
+      padding: 0.6rem;
+      border-radius: 14px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--border-light);
+    }
+
+    .services-scroll-btn {
+      background: var(--light-bg);
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      flex-shrink: 0;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .services-scroll-btn:hover {
+      background: var(--dark-bg);
+      border-color: var(--dark-bg);
+      color: #fff;
+    }
+
+    .services-scroll-btn.disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .uptalk_profile_page_services_tabs_container {
+      flex: 1;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .uptalk_profile_page_services_tabs_container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .uptalk_profile_page_services_tabs {
+      display: flex;
+      gap: 0.35rem;
+      flex-wrap: nowrap;
+      min-width: min-content;
+    }
+
+    .uptalk_profile_page_service_tab {
+      padding: 0.55rem 1.1rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: all 0.2s var(--transition-smooth);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .uptalk_profile_page_service_tab:hover {
+      background: var(--light-bg);
+      color: var(--text-dark);
+    }
+
+    .uptalk_profile_page_service_tab_active {
+      background: var(--dark-bg) !important;
+      color: #fff !important;
+      font-weight: 600;
+    }
+
+    .uptalk_profile_page_services_grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+    }
+
+    .uptalk_profile_page_service_card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.35s var(--transition-smooth);
+      cursor: pointer;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--border-light);
+    }
+
+    .uptalk_profile_page_service_card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--card-shadow-hover);
+      border-color: transparent;
+    }
+
+    .uptalk_profile_page_card_thumbnail {
+      height: 120px;
+      background-size: 30px 30px;
+      background-repeat: repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bg-grad-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .bg-grad-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+    .bg-grad-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+    .bg-grad-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+    .bg-grad-5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+    .bg-grad-6 { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); }
+
+    .uptalk_profile_page_card_header {
+      padding: 0.85rem 1.15rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .uptalk_profile_page_card_category {
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      background: var(--light-bg);
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+    }
+
+    .uptalk_profile_page_card_details {
+      padding: 0.5rem 1.15rem 0.65rem;
+    }
+
+    .uptalk_profile_page_card_name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.25rem;
+      line-height: 1.35;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      letter-spacing: -0.01em;
+    }
+
+    .uptalk_profile_page_card_description {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .uptalk_profile_page_card_footer {
+      padding: 0.75rem 1.15rem;
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .uptalk_profile_page_card_price {
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--text-dark);
+      letter-spacing: -0.02em;
+    }
+
+    .uptalk_profile_page_card_arrow {
+      transition: all 0.25s var(--transition-smooth);
+      cursor: pointer;
+      background: var(--dark-bg);
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      color: #fff;
+    }
+
+    .uptalk_profile_page_service_card:hover .uptalk_profile_page_card_arrow {
+      background: var(--primary-color);
+      color: var(--dark-bg);
+      transform: translateX(3px);
+    }
+
+    /* FAQ SECTION */
+    .section_divider {
+      text-align: center;
+      padding: 2rem 0 1rem;
+      margin: 2rem 0;
+    }
+
+    .section_title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .section_subtitle {
+      font-size: 1rem;
+      color: var(--text-light);
+    }
+
+    .faq_container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    .faq_item {
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: 14px;
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+      transition: all 0.3s var(--transition-smooth);
+      box-shadow: var(--card-shadow);
+    }
+
+    .faq_item:hover {
+      box-shadow: var(--card-shadow-hover);
+    }
+
+    .faq_item.open {
+      border-color: rgba(244,206,93,0.3);
+      box-shadow: 0 4px 20px rgba(244,206,93,0.08);
+    }
+
+    .faq_header {
+      padding: 1.15rem 1.25rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      transition: all 0.2s;
+      gap: 1rem;
+    }
+
+    .faq_item.open .faq_header {
+      background: white;
+    }
+
+    .faq_header:hover {
+      background: var(--light-bg);
+    }
+
+    .faq_question {
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--text-dark);
+      flex: 1;
+      letter-spacing: -0.01em;
+    }
+
+    .faq_toggle {
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--light-bg);
+      color: var(--text-muted);
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 0.85rem;
+      transition: all 0.3s var(--transition-smooth);
+      flex-shrink: 0;
+    }
+
+    .faq_item.open .faq_toggle {
+      transform: rotate(45deg);
+      background: var(--primary-color);
+      color: var(--dark-bg);
+    }
+
+    .faq_content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: white;
+    }
+
+    .faq_item.open .faq_content {
+      max-height: 500px;
+    }
+
+    .faq_text {
+      padding: 0 1.25rem 1.25rem;
+      color: var(--text-light);
+      line-height: 1.7;
+      font-size: 0.9rem;
+    }
+
+    /* FEEDBACK SECTION */
+    .feedback_container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    .feedback_form {
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: 18px;
+      padding: 2.25rem;
+      box-shadow: var(--card-shadow);
+    }
+
+    .form_group {
+      margin-bottom: 1.35rem;
+    }
+
+    .form_group label {
+      display: block;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+      font-size: 0.84rem;
+      letter-spacing: -0.01em;
+    }
+
+    .form_group input,
+    .form_group textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      transition: all 0.25s var(--transition-smooth);
+      color: var(--text-dark);
+      background: var(--light-bg);
+    }
+
+    .form_group input:focus,
+    .form_group textarea:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 4px rgba(244,206,93,0.1);
+      background: white;
+    }
+
+    .form_group input::placeholder,
+    .form_group textarea::placeholder {
+      color: var(--text-muted);
+    }
+
+    .form_group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form_row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .feedback_submit_btn {
+      background: var(--dark-bg);
+      border: none;
+      padding: 0.85rem 2rem;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.88rem;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s var(--transition-smooth);
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      letter-spacing: -0.01em;
+    }
+
+    .feedback_submit_btn:hover {
+      background: var(--primary-color);
+      color: var(--dark-bg);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(244,206,93,0.25);
+    }
+
+    .toast-notification {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--dark-bg);
+      color: white;
+      padding: 14px 22px;
+      border-radius: 14px;
+      z-index: 1002;
+      animation: slideIn 0.35s var(--transition-smooth);
+      font-weight: 500;
+      font-size: 0.88rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+
+    .toast-notification.success {
+      background: #059669;
+    }
+
+    .toast-notification.error {
+      background: #dc2626;
+    }
+
+    .modal-content {
+      border: none;
+      border-radius: 20px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.15);
+      overflow: hidden;
+    }
+
+    .modal-header {
+      border-bottom: 1px solid var(--border-light);
+      padding: 1.25rem 1.5rem;
+    }
+
+    .modal-title {
+      color: var(--text-dark) !important;
+      font-weight: 700 !important;
+      font-size: 1rem;
+    }
+
+    .modal-body {
+      padding: 1.5rem;
+    }
+
+    .modal-footer {
+      border-top: 1px solid var(--border-light);
+      padding: 1rem 1.5rem;
+    }
+
+    .btn-close {
+      opacity: 0.4;
+    }
+
+    .btn-close:hover {
+      opacity: 1;
+    }
+
+    /* Rating styles */
+    .rating-options {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .rating-options label {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      font-weight: 400 !important;
+      margin-bottom: 0 !important;
+      padding: 6px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border-light);
+      transition: all 0.2s;
+      font-size: 0.82rem !important;
+      background: var(--light-bg);
+    }
+
+    .rating-options label:hover {
+      border-color: var(--primary-color);
+      background: var(--primary-glow);
+    }
+
+    .rating-options input[type="radio"] {
+      display: none;
+    }
+
+    .rating-options input[type="radio"]:checked + span {
+      font-weight: 600;
+    }
+
+    .rating-options label:has(input:checked) {
+      border-color: var(--primary-color);
+      background: var(--primary-glow);
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    /* Experience timeline */
+    .experience_timeline {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .experience-item {
+      position: relative;
+      padding: 1.2rem 1.25rem 1.2rem 1.4rem;
+      border: 1px solid var(--border-light);
+      border-radius: 18px;
+      background: linear-gradient(180deg, #fff 0%, #fcfcfe 100%);
+      box-shadow: 0 10px 28px rgba(15,22,41,0.04);
+      overflow: hidden;
+    }
+
+    .experience-item::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      background: linear-gradient(180deg, var(--primary-color), rgba(244,206,93,0.25));
+    }
+
+    .experience-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.55rem;
+      flex-wrap: wrap;
+    }
+
+    .experience-role {
+      font-weight: 800;
+      color: var(--text-dark);
+      font-size: 1rem;
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+
+    .experience-period {
+      font-size: 0.73rem;
+      color: var(--text-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: 0;
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(244,206,93,0.2);
+    }
+
+    .experience-company {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.55rem;
+    }
+
+    .experience-desc {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      line-height: 1.7;
+      margin-bottom: 0.9rem;
+    }
+
+    .experience-metric {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      background: var(--light-bg);
+      border: 1px solid var(--border-light);
+      font-size: 0.8rem;
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+
+    /* Stats row in overview */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 0;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 1.25rem 0.75rem;
+      background: var(--light-bg);
+      border-radius: 14px;
+      border: 1px solid var(--border-light);
+      transition: all 0.25s var(--transition-smooth);
+    }
+
+    .stat-item:hover {
+      border-color: rgba(244,206,93,0.3);
+      background: var(--primary-glow);
+      transform: translateY(-2px);
+    }
+
+    .stat-number {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Offerings cards */
+    .offering-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .offering-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .offering-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: var(--primary-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--primary-dark);
+    }
+
+    .offering-name {
+      font-weight: 700;
+      color: var(--text-dark);
+      font-size: 0.92rem;
+      margin-bottom: 2px;
+    }
+
+    .offering-desc {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    /* Feedback heading */
+    .feedback-heading {
+      text-align: center;
+      font-size: 1rem;
+      margin-bottom: 1.75rem;
+      color: var(--text-dark);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .feedback-heading span {
+      color: var(--primary-color);
+    }
+
+    @media (max-width: 1024px) {
+      .uptalk_profile_page_services_grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .profile_section_shell {
+        margin-top: 0;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .uptalk_profile_page_services_grid {
+        grid-template-columns: 1fr;
+      }
+
+      .uptalk_profile26_sidebar_inner {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+      }
+
+      .uptalk_profile26_avatar_wrap {
+        margin: 0 auto;
+      }
+
+      .uptalk_profile26_name_row {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .uptalk_profile26_badge_grid {
+        justify-content: center;
+      }
+
+      .section_title {
+        font-size: 1.5rem;
+      }
+
+      .form_row {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .uptalk_profile26_sidebar {
+        padding: 2.5rem 1.25rem 2rem;
+      }
+
+      .uptalk_profile_page_services {
+        padding: 1rem;
+      }
+
+      .profile_section_shell {
+        border-radius: 20px;
+      }
+
+      .uptalk_profile_page_tabs_wrapper {
+        width: 100%;
+        padding: 0.9rem 1rem 0;
+      }
+
+      .uptalk_profile26_tab_contents {
+        padding: 1.5rem 1rem;
+      }
+
+      .uptalk_profile26_name {
+        font-size: 1.4rem;
+      }
+
+      .services_intro {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .uptalk_profile_page_tabs {
+        gap: 1rem;
+      }
+
+      .uptalk_profile_page_tab {
+        font-size: 0.84rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+      }
+
+      .stat-number {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="uptalk_profile_page_dashboard">
+  <!-- HEADER SECTION -->
+  <header class="uptalk_profile26_sidebar" id="dynamicSidebar">
+    <div class="uptalk_profile26_sidebar_inner">
+      <div class="uptalk_profile26_avatar_wrap">
+        <img class="uptalk_profile26_avatar" src="https://vyapti.in/public/esdm/public/assets/front/img/boy_placeholder.png" alt="Suraj">
+        <div class="uptalk_profile26_verified_badge">
+          <i class="fas fa-check" style="color: var(--dark-bg); font-size: 0.75rem;"></i>
+        </div>
+      </div>
+
+      <div class="profile_info_center">
+        <div class="uptalk_profile26_name_row">
+          <h1 class="uptalk_profile26_name">Suraj | Tech Sales Coach</h1>
+        </div>
+
+        <div class="uptalk_profile26_bio">Mentor to 1,200+ | 100+ placements | Sr. AE @ Motive</div>
+
+        <!-- Enhanced Badge Grid -->
+        <div class="uptalk_profile26_badge_grid" id="visibleBadges">
+          <div class="uptalk_profile26_badge"><i class="fas fa-calendar-alt"></i> 246 Bookings</div>
+          <div class="uptalk_profile26_badge"><i class="fas fa-star"></i> Top 5%</div>
+          <div class="uptalk_profile26_badge"><i class="fas fa-heart"></i> People's Choice</div>
+          <div class="uptalk_profile26_badge"><i class="fas fa-handshake"></i> Community Care</div>
+          <div class="uptalk_profile26_badge uptalk_profile26_show_more" id="showMoreBadgeBtn">+5 More <i class="fas fa-chevron-down" style="font-size: 10px; margin-left: 4px;"></i></div>
+        </div>
+        <div class="uptalk_profile26_hidden_badges" id="hiddenBadgesContainer">
+          <div class="uptalk_profile26_badge"><i class="fas fa-crown"></i> Elite Mentor</div>
+          <div class="uptalk_profile26_badge"><i class="fas fa-chart-line"></i> 100% Success Rate</div>
+          <div class="uptalk_profile26_badge"><i class="fas fa-globe"></i> Global Speaker</div>
+          <div class="uptalk_profile26_badge"><i class="fas fa-award"></i> Top Coach 2024</div>
+          <div class="uptalk_profile26_badge"><i class="fas fa-users"></i> 1.2K+ Community</div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT AREA -->
+  <div class="uptalk_profile_page_right" >
+    <div class="uptalk_profile_page_services">
+      <div class="services_intro">
+        <div class="services_intro_text">
+          <h2>Services</h2>
+          <p>Start with Suraj's live offers, then move into his background, expertise, and coaching approach below.</p>
+        </div>
+      </div>
+
+      <div class="uptalk_profile_page_services_tabs_wrapper">
+        <button class="services-scroll-btn services-scroll-left" id="servicesScrollLeft" type="button"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+        <div class="uptalk_profile_page_services_tabs_container" id="servicesTabsContainer">
+          <div class="uptalk_profile_page_services_tabs" id="serviceTabs">
+            <button class="uptalk_profile_page_service_tab uptalk_profile_page_service_tab_active" data-service-tab="all" data-cat-id="all" type="button">All Services</button>
+            <button class="uptalk_profile_page_service_tab" data-service-tab="1:1-meeting" data-cat-id="1" type="button">1:1 Meeting</button>
+            <button class="uptalk_profile_page_service_tab" data-service-tab="webinars" data-cat-id="2" type="button">Webinars</button>
+            <button class="uptalk_profile_page_service_tab" data-service-tab="cohorts" data-cat-id="3" type="button">Cohorts</button>
+            <button class="uptalk_profile_page_service_tab" data-service-tab="digital-products" data-cat-id="4" type="button">Digital Products</button>
+          </div>
+        </div>
+        <button class="services-scroll-btn services-scroll-right" id="servicesScrollRight" type="button"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+      </div>
+
+      <div class="uptalk_profile_page_services_grid" id="servicesGrid">
+                  <div class="uptalk_profile_page_service_card service-item view-detail-btn"
+               data-cat-id="2"
+               data-service-id="1"
+               data-service-title="test"
+               data-service-price="500.00"
+               data-service-description="test desc"
+               data-pricing-type="paid">
+            <div class="uptalk_profile_page_card_thumbnail bg-grad-2"></div>
+            <div class="uptalk_profile_page_card_header">
+              <span class="uptalk_profile_page_card_category">Webinars</span>
+            </div>
+            <div class="uptalk_profile_page_card_details">
+              <div class="uptalk_profile_page_card_name">test</div>
+              <div class="uptalk_profile_page_card_description">test desc</div>
+            </div>
+            <div class="uptalk_profile_page_card_footer">
+              <div class="uptalk_profile_page_card_price">&#8377;500.00</div>
+              <div class="uptalk_profile_page_card_arrow view-detail-btn"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="16" width="16"><path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"></path></svg></div>
+            </div>
+          </div>
+                  <div class="uptalk_profile_page_service_card service-item view-detail-btn"
+               data-cat-id="1"
+               data-service-id="2"
+               data-service-title="test"
+               data-service-price="5.00"
+               data-service-description="test"
+               data-pricing-type="">
+            <div class="uptalk_profile_page_card_thumbnail bg-grad-3"></div>
+            <div class="uptalk_profile_page_card_header">
+              <span class="uptalk_profile_page_card_category">1:1 Meeting</span>
+            </div>
+            <div class="uptalk_profile_page_card_details">
+              <div class="uptalk_profile_page_card_name">test</div>
+              <div class="uptalk_profile_page_card_description">test</div>
+            </div>
+            <div class="uptalk_profile_page_card_footer">
+              <div class="uptalk_profile_page_card_price">&#8377;5.00</div>
+              <div class="uptalk_profile_page_card_arrow view-detail-btn"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="16" width="16"><path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"></path></svg></div>
+            </div>
+          </div>
+                  <div class="uptalk_profile_page_service_card service-item view-detail-btn"
+               data-cat-id="1"
+               data-service-id="3"
+               data-service-title="1:1 meeting"
+               data-service-price="499.00"
+               data-service-description="1:1 meeting description"
+               data-pricing-type="">
+            <div class="uptalk_profile_page_card_thumbnail bg-grad-4"></div>
+            <div class="uptalk_profile_page_card_header">
+              <span class="uptalk_profile_page_card_category">1:1 Meeting</span>
+            </div>
+            <div class="uptalk_profile_page_card_details">
+              <div class="uptalk_profile_page_card_name">1:1 meeting</div>
+              <div class="uptalk_profile_page_card_description">1:1 meeting description</div>
+            </div>
+            <div class="uptalk_profile_page_card_footer">
+              <div class="uptalk_profile_page_card_price">&#8377;499.00</div>
+              <div class="uptalk_profile_page_card_arrow view-detail-btn"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="16" width="16"><path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"></path></svg></div>
+            </div>
+          </div>
+                  <div class="uptalk_profile_page_service_card service-item view-detail-btn"
+               data-cat-id="1"
+               data-service-id="6"
+               data-service-title="1:1 meetings"
+               data-service-price="499.00"
+               data-service-description="loreal ipsum test"
+               data-pricing-type="paid">
+            <div class="uptalk_profile_page_card_thumbnail bg-grad-5"></div>
+            <div class="uptalk_profile_page_card_header">
+              <span class="uptalk_profile_page_card_category">1:1 Meeting</span>
+            </div>
+            <div class="uptalk_profile_page_card_details">
+              <div class="uptalk_profile_page_card_name">1:1 meetings</div>
+              <div class="uptalk_profile_page_card_description">loreal ipsum test</div>
+            </div>
+            <div class="uptalk_profile_page_card_footer">
+              <div class="uptalk_profile_page_card_price">&#8377;499.00</div>
+              <div class="uptalk_profile_page_card_arrow view-detail-btn"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="16" width="16"><path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"></path></svg></div>
+            </div>
+          </div>
+                  <div class="uptalk_profile_page_service_card service-item view-detail-btn"
+               data-cat-id="1"
+               data-service-id="7"
+               data-service-title="1:1 meetings"
+               data-service-price="499.00"
+               data-service-description="loreal ipsum test"
+               data-pricing-type="paid">
+            <div class="uptalk_profile_page_card_thumbnail bg-grad-6"></div>
+            <div class="uptalk_profile_page_card_header">
+              <span class="uptalk_profile_page_card_category">1:1 Meeting</span>
+            </div>
+            <div class="uptalk_profile_page_card_details">
+              <div class="uptalk_profile_page_card_name">1:1 meetings</div>
+              <div class="uptalk_profile_page_card_description">loreal ipsum test</div>
+            </div>
+            <div class="uptalk_profile_page_card_footer">
+              <div class="uptalk_profile_page_card_price">&#8377;499.00</div>
+              <div class="uptalk_profile_page_card_arrow view-detail-btn"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="16" width="16"><path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"></path></svg></div>
+            </div>
+          </div>
+                  <div class="uptalk_profile_page_service_card service-item view-detail-btn"
+               data-cat-id="1"
+               data-service-id="8"
+               data-service-title="Nikhilesh, Sales tutorial"
+               data-service-price="49.00"
+               data-service-description="I will teach sales to you"
+               data-pricing-type="paid">
+            <div class="uptalk_profile_page_card_thumbnail bg-grad-1"></div>
+            <div class="uptalk_profile_page_card_header">
+              <span class="uptalk_profile_page_card_category">1:1 Meeting</span>
+            </div>
+            <div class="uptalk_profile_page_card_details">
+              <div class="uptalk_profile_page_card_name">Nikhilesh, Sales tutorial</div>
+              <div class="uptalk_profile_page_card_description">I will teach sales to you</div>
+            </div>
+            <div class="uptalk_profile_page_card_footer">
+              <div class="uptalk_profile_page_card_price">&#8377;49.00</div>
+              <div class="uptalk_profile_page_card_arrow view-detail-btn"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="16" width="16"><path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"></path></svg></div>
+            </div>
+          </div>
+                  <div class="uptalk_profile_page_service_card service-item view-detail-btn"
+               data-cat-id="4"
+               data-service-id="9"
+               data-service-title="Sales pitch deck"
+               data-service-price="49.00"
+               data-service-description="Download it"
+               data-pricing-type="paid">
+            <div class="uptalk_profile_page_card_thumbnail bg-grad-2"></div>
+            <div class="uptalk_profile_page_card_header">
+              <span class="uptalk_profile_page_card_category">Digital Products</span>
+            </div>
+            <div class="uptalk_profile_page_card_details">
+              <div class="uptalk_profile_page_card_name">Sales pitch deck</div>
+              <div class="uptalk_profile_page_card_description">Download it</div>
+            </div>
+            <div class="uptalk_profile_page_card_footer">
+              <div class="uptalk_profile_page_card_price">&#8377;49.00</div>
+              <div class="uptalk_profile_page_card_arrow view-detail-btn"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="16" width="16"><path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"></path></svg></div>
+            </div>
+          </div>
+                  <div class="uptalk_profile_page_service_card service-item view-detail-btn"
+               data-cat-id="1"
+               data-service-id="10"
+               data-service-title="Sales masterclass"
+               data-service-price="3997.00"
+               data-service-description="I will teach you sales"
+               data-pricing-type="paid">
+            <div class="uptalk_profile_page_card_thumbnail bg-grad-3"></div>
+            <div class="uptalk_profile_page_card_header">
+              <span class="uptalk_profile_page_card_category">1:1 Meeting</span>
+            </div>
+            <div class="uptalk_profile_page_card_details">
+              <div class="uptalk_profile_page_card_name">Sales masterclass</div>
+              <div class="uptalk_profile_page_card_description">I will teach you sales</div>
+            </div>
+            <div class="uptalk_profile_page_card_footer">
+              <div class="uptalk_profile_page_card_price">&#8377;3,997.00</div>
+              <div class="uptalk_profile_page_card_arrow view-detail-btn"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="16" width="16"><path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"></path></svg></div>
+            </div>
+          </div>
+      </div>
+
+      <div class="profile_section_shell">
+        <!-- NAVIGATION TABS -->
+        <nav class="uptalk_profile_page_tabs_wrapper">
+          <div class="profile_section_nav_eyebrow">Explore Profile</div>
+          <h3 class="profile_section_nav_title">Experience, strengths, and coaching style</h3>
+          <p class="profile_section_nav_subtitle">See the story behind the services, from enterprise sales experience to the tools and methods Suraj teaches.</p>
+          <div class="uptalk_profile_page_tabs_container" id="profileTabsContainer">
+            <div class="uptalk_profile_page_tabs" id="profileTabs">
+              <button class="uptalk_profile_page_tab uptalk_profile_page_tab_active" data-tab="intro" type="button">
+                <i class="fas fa-home"></i> Overview
+              </button>
+              <button class="uptalk_profile_page_tab" data-tab="skills" type="button">
+                <i class="fas fa-code"></i> Skills
+              </button>
+              <button class="uptalk_profile_page_tab" data-tab="experience" type="button">
+                <i class="fas fa-briefcase"></i> Experience
+              </button>
+              <button class="uptalk_profile_page_tab" data-tab="special" type="button">
+                <i class="fas fa-star"></i> Offerings
+              </button>
+              <button class="uptalk_profile_page_tab" data-tab="faq" type="button">
+                <i class="fas fa-question-circle"></i> FAQ
+              </button>
+              <button class="uptalk_profile_page_tab" data-tab="feedback" type="button">
+                <i class="fas fa-comments"></i> Feedback
+              </button>
+            </div>
+          </div>
+        </nav>
+
+        <!-- TAB CONTENT -->
+        <div class="uptalk_profile26_tab_contents">
+        <!-- INTRO TAB -->
+        <div class="uptalk_profile26_tab_panel active" id="tab-intro">
+          <div class="tab_content_card">
+            <div class="tab_content_title"><i class="fas fa-user-astronaut"></i> Who I Am</div>
+            <div class="tab_content_text">Hi, I'm Suraj — a Senior Account Executive at Motive, ex-Amazon, and a passionate tech sales coach. I've helped over 1,200 professionals land their dream roles in SaaS, fintech, and high-growth startups.</div>
+          </div>
+          <div class="tab_content_card">
+            <div class="tab_content_title"><i class="fas fa-bullhorn"></i> My Mission</div>
+            <div class="tab_content_text">Democratize access to high-paying tech sales careers. I provide the roadmap, accountability, and network to get you there faster.</div>
+          </div>
+          <div class="tab_content_card" style="border: none; background: transparent; box-shadow: none; padding: 0;">
+            <div class="stats-grid">
+              <div class="stat-item">
+                <div class="stat-number">1,200+</div>
+                <div class="stat-label">Students Placed</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Resumes Crafted</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">Roles Unlocked</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Success Rate</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SKILLS TAB -->
+        <div class="uptalk_profile26_tab_panel" id="tab-skills">
+          <div class="tab_content_card">
+            <div class="tab_content_title"><i class="fas fa-code-branch"></i> Core Competencies</div>
+            <div class="skill_tags">
+              <span class="skill_tag">SaaS Sales</span>
+              <span class="skill_tag">Enterprise AE</span>
+              <span class="skill_tag">MEDDIC</span>
+              <span class="skill_tag">Salesforce</span>
+              <span class="skill_tag">Outbound</span>
+              <span class="skill_tag">Negotiation</span>
+              <span class="skill_tag">Pipeline Building</span>
+              <span class="skill_tag">Closing</span>
+            </div>
+          </div>
+          <div class="tab_content_card">
+            <div class="tab_content_title"><i class="fas fa-tools"></i> Tools & Platforms</div>
+            <div class="skill_tags">
+              <span class="skill_tag">Salesforce</span>
+              <span class="skill_tag">HubSpot</span>
+              <span class="skill_tag">Outreach</span>
+              <span class="skill_tag">LinkedIn Sales Nav</span>
+              <span class="skill_tag">Gong</span>
+              <span class="skill_tag">Revenue.io</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- EXPERIENCE TAB -->
+        <div class="uptalk_profile26_tab_panel" id="tab-experience">
+          <div class="tab_content_card">
+            <div class="tab_content_title"><i class="fas fa-briefcase"></i> Professional Journey</div>
+            <div class="experience_timeline">
+              <div class="experience-item">
+                <div class="experience-topline">
+                  <div class="experience-role">Sr. AE III</div>
+                  <div class="experience-period">2022 - Present</div>
+                </div>
+                <div class="experience-company">Motive</div>
+                <div class="experience-desc">Leading enterprise deals, building repeatable sales playbooks, and coaching teams on how to create momentum through complex buying journeys.</div>
+                <div class="experience-metric"><i class="fas fa-chart-line"></i> Revenue impact: $2M+</div>
+              </div>
+              <div class="experience-item">
+                <div class="experience-topline">
+                  <div class="experience-role">Account Executive</div>
+                  <div class="experience-period">2020 - 2022</div>
+                </div>
+                <div class="experience-company">Amazon Ads</div>
+                <div class="experience-desc">Managed a large advertising pipeline, handled strategic client conversations, and consistently performed inside a fast-moving, high-expectation sales environment.</div>
+                <div class="experience-metric"><i class="fas fa-trophy"></i> Top 10% across 500+ AEs</div>
+              </div>
+              <div class="experience-item">
+                <div class="experience-topline">
+                  <div class="experience-role">Sales Development Representative</div>
+                  <div class="experience-period">2018 - 2020</div>
+                </div>
+                <div class="experience-company">Oracle</div>
+                <div class="experience-desc">Built pipeline from outbound, sharpened prospecting fundamentals, and created the discipline that later accelerated the move into closing roles.</div>
+                <div class="experience-metric"><i class="fas fa-bolt"></i> Promoted to AE within 12 months</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SPECIAL OFFERINGS TAB -->
+        <div class="uptalk_profile26_tab_panel" id="tab-special">
+          <div class="tab_content_card">
+            <div class="tab_content_title"><i class="fas fa-magic"></i> Unique Offerings</div>
+            <div class="tab_content_text">
+              <div class="offering-item">
+                <div class="offering-icon"><i class="fas fa-file-alt"></i></div>
+                <div>
+                  <div class="offering-name">ATS Resume Rewrite</div>
+                  <div class="offering-desc">Optimize your resume for AI screening systems</div>
+                </div>
+              </div>
+              <div class="offering-item">
+                <div class="offering-icon"><i class="fas fa-microphone-alt"></i></div>
+                <div>
+                  <div class="offering-name">Mock Interview Bootcamp</div>
+                  <div class="offering-desc">5-session intensive with real feedback</div>
+                </div>
+              </div>
+              <div class="offering-item">
+                <div class="offering-icon"><i class="fas fa-bolt"></i></div>
+                <div>
+                  <div class="offering-name">30-Day Career Sprint</div>
+                  <div class="offering-desc">Direct coaching to land your next role</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ TAB -->
+        <div class="uptalk_profile26_tab_panel" id="tab-faq">
+          <div class="faq_container">
+            <div class="faq_item" data-faq="1">
+              <div class="faq_header">
+                <div class="faq_question">How do I get started with coaching?</div>
+                <div class="faq_toggle">+</div>
+              </div>
+              <div class="faq_content">
+                <div class="faq_text">Book any of my 1:1 sessions to start. We'll discuss your goals, current position, and create a personalized roadmap. Most clients see results within 30 days.</div>
+              </div>
+            </div>
+
+            <div class="faq_item" data-faq="2">
+              <div class="faq_header">
+                <div class="faq_question">What's the difference between your services?</div>
+                <div class="faq_toggle">+</div>
+              </div>
+              <div class="faq_content">
+                <div class="faq_text">1:1 meetings are for personalized coaching, Webinars for group learning, Cohorts for 30-day immersive programs, and Digital Products are self-paced resources. Choose based on your learning style and timeline.</div>
+              </div>
+            </div>
+
+            <div class="faq_item" data-faq="3">
+              <div class="faq_header">
+                <div class="faq_question">Can I switch roles from non-sales to sales?</div>
+                <div class="faq_toggle">+</div>
+              </div>
+              <div class="faq_content">
+                <div class="faq_text">Absolutely! I've successfully coached 200+ professionals from non-sales backgrounds into tech sales. Your background is an asset. We'll highlight transferable skills and position you for entry-level AE roles.</div>
+              </div>
+            </div>
+
+            <div class="faq_item" data-faq="4">
+              <div class="faq_header">
+                <div class="faq_question">What's your success rate?</div>
+                <div class="faq_toggle">+</div>
+              </div>
+              <div class="faq_content">
+                <div class="faq_text">100% of my clients who complete the 30-day sprint have landed roles within 60 days. Average placement time is 45 days, and average salary package is $80K-$120K base + commission.</div>
+              </div>
+            </div>
+
+            <div class="faq_item" data-faq="5">
+              <div class="faq_header">
+                <div class="faq_question">How do you handle different time zones?</div>
+                <div class="faq_toggle">+</div>
+              </div>
+              <div class="faq_content">
+                <div class="faq_text">I'm available for sessions across major time zones - IST, PST, EST, and UTC. We can schedule sessions at your convenience. Recordings are provided for any session you can't attend live.</div>
+              </div>
+            </div>
+
+            <div class="faq_item" data-faq="6">
+              <div class="faq_header">
+                <div class="faq_question">What if I need help after the coaching ends?</div>
+                <div class="faq_toggle">+</div>
+              </div>
+              <div class="faq_content">
+                <div class="faq_text">All my clients get lifetime access to our community channel and resources. You can reach out anytime for quick questions, and I offer follow-up sessions at discounted rates.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FEEDBACK TAB -->
+        <div class="uptalk_profile26_tab_panel" id="tab-feedback">
+          <div class="feedback_container">
+            <div class="feedback-heading">Your feedback helps me <span>improve</span></div>
+            <form class="feedback_form" id="feedbackForm">
+              <div class="form_row">
+                <div class="form_group">
+                  <label for="fb_name">Your Name *</label>
+                  <input type="text" id="fb_name" required placeholder="Enter your name">
+                </div>
+                <div class="form_group">
+                  <label for="fb_email">Email Address *</label>
+                  <input type="email" id="fb_email" required placeholder="your@email.com">
+                </div>
+              </div>
+
+              <div class="form_group">
+                <label for="fb_service">Which service did you use?</label>
+                <input type="text" id="fb_service" placeholder="e.g., 1:1 Coaching Session, Webinar">
+              </div>
+
+              <div class="form_group">
+                <label for="fb_message">Your Feedback *</label>
+                <textarea id="fb_message" required placeholder="Tell me what you loved, what could be better, or any suggestions..."></textarea>
+              </div>
+
+              <div class="form_group">
+                <label>How would you rate your experience?</label>
+                <div class="rating-options">
+                  <label>
+                    <input type="radio" name="rating" value="5"> <span>Excellent</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="rating" value="4"> <span>Good</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="rating" value="3"> <span>Average</span>
+                  </label>
+                </div>
+              </div>
+
+              <button type="submit" class="feedback_submit_btn">
+                <i class="fas fa-paper-plane"></i> Send Feedback
+              </button>
+            </form>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Service Detail Modal - Bootstrap 5 -->
+<div class="modal fade" id="serviceDetailModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="serviceDetailModalLabel">Service Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div id="detailModalDescription" class="mb-3" style="font-size: 0.95rem; line-height: 1.6; color: #334155;"></div>
+        <div class="bg-light p-3 rounded-3 mt-3">
+          <span class="text-muted small">Price</span>
+          <div id="detailModalPrice" class="h3 fw-bold" style="color: #F4CE5D;"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn" id="detailModalBookBtn" style="background: #F4CE5D; color: #1a1f3a; font-weight: 700;">Book This Service</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Booking Modal - Bootstrap 5 -->
+<div class="modal fade" id="bookingModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="bookingModalLabel">Book Service</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form id="bookingForm">
+        <div class="modal-body">
+          <input type="hidden" id="service_id">
+          <input type="hidden" id="service_price">
+          <input type="hidden" id="pricing_type">
+
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Full Name *</label>
+            <input type="text" class="form-control" id="name" required placeholder="Enter your full name">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Email Address *</label>
+            <input type="email" class="form-control" id="email" required placeholder="Enter your email">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Mobile Number *</label>
+            <input type="tel" class="form-control" id="mobile" required placeholder="Enter your mobile number">
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn" id="submitBookingBtn" style="background: #F4CE5D; color: #1a1f3a; font-weight: 700;">Proceed to Pay</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Initialize Bootstrap Modals
+  const serviceDetailModal = new bootstrap.Modal(document.getElementById('serviceDetailModal'));
+  const bookingModal = new bootstrap.Modal(document.getElementById('bookingModal'));
+
+  // Badge show more/less
+  const showMoreBtn = document.getElementById('showMoreBadgeBtn');
+  const hiddenContainer = document.getElementById('hiddenBadgesContainer');
+  if(showMoreBtn && hiddenContainer) {
+    let expanded = false;
+    showMoreBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      expanded = !expanded;
+      if(expanded) {
+        hiddenContainer.classList.add('show');
+        showMoreBtn.innerHTML = 'Less <i class="fas fa-chevron-up" style="font-size: 10px; margin-left: 4px;"></i>';
+      } else {
+        hiddenContainer.classList.remove('show');
+        showMoreBtn.innerHTML = '+5 More <i class="fas fa-chevron-down" style="font-size: 10px; margin-left: 4px;"></i>';
+      }
+    });
+  }
+
+  // Profile Tabs scrolling
+  const tabsContainer = document.getElementById('profileTabsContainer');
+  const leftScroll = document.getElementById('tabsScrollLeft');
+  const rightScroll = document.getElementById('tabsScrollRight');
+  function updateTabScroll() {
+    if(leftScroll) leftScroll.classList.toggle('disabled', tabsContainer.scrollLeft <= 5);
+    if(rightScroll) rightScroll.classList.toggle('disabled', tabsContainer.scrollLeft >= tabsContainer.scrollWidth - tabsContainer.clientWidth - 5);
+  }
+  if(leftScroll) leftScroll.addEventListener('click', () => { tabsContainer.scrollBy({ left: -150, behavior: 'smooth' }); setTimeout(updateTabScroll, 200); });
+  if(rightScroll) rightScroll.addEventListener('click', () => { tabsContainer.scrollBy({ left: 150, behavior: 'smooth' }); setTimeout(updateTabScroll, 200); });
+  if(tabsContainer) { tabsContainer.addEventListener('scroll', updateTabScroll); setTimeout(updateTabScroll, 100); }
+
+  // Tab switching
+  document.querySelectorAll('.uptalk_profile_page_tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tabId = btn.getAttribute('data-tab');
+      document.querySelectorAll('.uptalk_profile_page_tab').forEach(b => b.classList.remove('uptalk_profile_page_tab_active'));
+      btn.classList.add('uptalk_profile_page_tab_active');
+      document.querySelectorAll('.uptalk_profile26_tab_panel').forEach(p => p.classList.remove('active'));
+      document.getElementById(`tab-${tabId}`)?.classList.add('active');
+      const tabsNav = document.querySelector('.uptalk_profile_page_tabs_wrapper');
+      const navTop = tabsNav ? tabsNav.getBoundingClientRect().top + window.scrollY - 12 : 0;
+      window.scrollTo({ top: navTop, behavior: 'smooth' });
+    });
+  });
+
+  // Services scroll
+  function setupScroll(contId, leftId, rightId) {
+    const cont = document.getElementById(contId); if(!cont) return;
+    const left = document.getElementById(leftId), right = document.getElementById(rightId);
+    function check() { if(left) left.classList.toggle('disabled', cont.scrollLeft <= 5); if(right) right.classList.toggle('disabled', cont.scrollLeft >= cont.scrollWidth - cont.clientWidth - 5); }
+    if(left) left.addEventListener('click', () => { cont.scrollBy({ left: -180, behavior: 'smooth' }); setTimeout(check, 200); });
+    if(right) right.addEventListener('click', () => { cont.scrollBy({ left: 180, behavior: 'smooth' }); setTimeout(check, 200); });
+    cont.addEventListener('scroll', check); check();
+  }
+  setupScroll('servicesTabsContainer', 'servicesScrollLeft', 'servicesScrollRight');
+
+  // Service filtering
+  const serviceTabs = document.querySelectorAll('.uptalk_profile_page_service_tab');
+  const serviceItems = document.querySelectorAll('.service-item');
+  serviceTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      serviceTabs.forEach(t => t.classList.remove('uptalk_profile_page_service_tab_active'));
+      tab.classList.add('uptalk_profile_page_service_tab_active');
+      const catId = tab.getAttribute('data-cat-id');
+      serviceItems.forEach(item => { item.style.display = (catId === 'all' || item.getAttribute('data-cat-id') === catId) ? '' : 'none'; });
+    });
+  });
+
+  // FAQ Toggle
+  const faqItems = document.querySelectorAll('.faq_item');
+  faqItems.forEach(item => {
+    const header = item.querySelector('.faq_header');
+    header?.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      faqItems.forEach(el => el.classList.remove('open'));
+      if(!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Feedback Form
+  const feedbackForm = document.getElementById('feedbackForm');
+  if(feedbackForm) {
+    feedbackForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('fb_name').value.trim();
+      const email = document.getElementById('fb_email').value.trim();
+      const message = document.getElementById('fb_message').value.trim();
+      const rating = document.querySelector('input[name="rating"]:checked')?.value;
+
+      if(!name || !email || !message) {
+        showToast('Please fill in all required fields', 'error');
+        return;
+      }
+
+      // Simulate form submission
+      const submitBtn = feedbackForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerText;
+      submitBtn.innerText = 'Sending...';
+      submitBtn.disabled = true;
+
+      setTimeout(() => {
+        showToast('Thank you for your feedback!', 'success');
+        feedbackForm.reset();
+        submitBtn.innerText = originalText;
+        submitBtn.disabled = false;
+      }, 1000);
+    });
+  }
+
+  // Service Detail and Booking Logic
+  let currentServiceData = null;
+
+  function showToast(msg, type){
+    let t=document.createElement('div');
+    t.className='toast-notification ' + type;
+    t.textContent=msg;
+    document.body.appendChild(t);
+    setTimeout(()=>t.remove(),3000);
+  }
+
+  // View detail buttons
+  document.querySelectorAll('.view-detail-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const card = btn.closest('.service-item');
+      if(card) {
+        currentServiceData = {
+          id: card.getAttribute('data-service-id'),
+          title: card.getAttribute('data-service-title'),
+          price: card.getAttribute('data-service-price'),
+          pricing_type: card.getAttribute('data-pricing-type'),
+          description: card.getAttribute('data-service-description') || "Experience personalized coaching tailored to your goals."
+        };
+        document.getElementById("serviceDetailModalLabel").innerText = currentServiceData.title;
+        document.getElementById("detailModalDescription").innerHTML = `<div>${currentServiceData.description}</div><div style="background:#fef9f0;padding:12px;border-radius:12px;margin-top:12px;"><strong>Session Details:</strong><br>• Duration: 45-60 minutes<br>• Format: One-on-one video call<br>• Includes: Personalized action plan + follow-up resources</div>`;
+        document.getElementById("detailModalPrice").innerHTML = currentServiceData.pricing_type === 'free' ? 'Free' : '\u20B9'+parseFloat(currentServiceData.price).toLocaleString('en-IN');
+        serviceDetailModal.show();
+      }
+    });
+  });
+
+  // Book button inside detail modal
+  document.getElementById('detailModalBookBtn')?.addEventListener('click', () => {
+    if(currentServiceData) {
+      serviceDetailModal.hide();
+      setTimeout(() => {
+        document.getElementById("service_id").value = currentServiceData.id;
+        document.getElementById("service_price").value = currentServiceData.price;
+        document.getElementById("pricing_type").value = currentServiceData.pricing_type;
+        document.getElementById("bookingModalLabel").innerText = "Book: " + currentServiceData.title;
+        document.getElementById("submitBookingBtn").innerText = currentServiceData.pricing_type === 'free' ? "Book Now (Free)" : "Proceed to Pay \u20B9"+parseFloat(currentServiceData.price).toLocaleString('en-IN');
+        document.getElementById("bookingForm").reset();
+        bookingModal.show();
+      }, 300);
+    }
+  });
+
+  // Booking Form Submit
+  const bookingForm = document.getElementById("bookingForm");
+  if(bookingForm) {
+    bookingForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const mobile = document.getElementById("mobile").value.trim();
+      const service_id = document.getElementById("service_id").value;
+      const pricing_type = document.getElementById("pricing_type").value;
+
+      if(!name||!email||!mobile) return showToast("Please fill in all fields","error");
+      if(!/^\d{10}$/.test(mobile)) return showToast("Please enter a valid 10-digit mobile number","error");
+      if(!/^[^\s@]+@([^\s@]+\.)+[^\s@]+$/.test(email)) return showToast("Please enter a valid email address","error");
+
+      const submitBtn = document.getElementById("submitBookingBtn");
+      const originalText = submitBtn.innerText;
+      submitBtn.innerText = "Processing...";
+      submitBtn.disabled = true;
+
+      const csrfName = document.querySelector('meta[name="csrf-token-name"]')?.getAttribute('content') || 'csrf_test_name';
+      const csrfHash = document.querySelector('meta[name="csrf-token-value"]')?.getAttribute('content') || '';
+      const BASE_URL = "https://vyapti.in/public/esdm/public/";
+
+      if(pricing_type === 'free') {
+        let reqData = { service_id, name, email, mobile };
+        if(csrfHash) reqData[csrfName] = csrfHash;
+        fetch(BASE_URL + "create-free-booking", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(reqData)
+        })
+        .then(res => res.json())
+        .then(data => {
+          if(data.status === "success") {
+            showToast("Booking Confirmed Successfully!", "success");
+            bookingModal.hide();
+          } else {
+            showToast("Booking failed: " + (data.message || "Please try again"), "error");
+          }
+          submitBtn.innerText = originalText;
+          submitBtn.disabled = false;
+        })
+        .catch(() => { showToast("Network error. Please try again.", "error"); submitBtn.innerText = originalText; submitBtn.disabled = false; });
+        return;
+      }
+
+      // Paid booking
+      let reqData = { service_id: parseInt(service_id), name, email, mobile };
+      if(csrfHash) reqData[csrfName] = csrfHash;
+      fetch(BASE_URL + "create-order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(reqData)
+      })
+      .then(res => res.json())
+      .then(data => {
+        if(data.status !== "success") {
+          showToast("Order failed: " + (data.message || "Unknown error"), "error");
+          submitBtn.innerText = originalText;
+          submitBtn.disabled = false;
+          return;
+        }
+        bookingModal.hide();
+        openRazorpay(data, name, email, mobile);
+        submitBtn.innerText = originalText;
+        submitBtn.disabled = false;
+      })
+      .catch(err => { showToast("Network error: " + err.message, "error"); submitBtn.innerText = originalText; submitBtn.disabled = false; });
+    });
+  }
+
+  window.openRazorpay = function(data, name, email, mobile) {
+    const options = {
+      key: "rzp_live_SVnXFXYe9Rg0ks",
+      amount: data.amount,
+      currency: "INR",
+      order_id: data.order_id,
+      name: "Uptalk",
+      description: "Service Booking",
+      handler: function(response) { verifyPayment(response); },
+      prefill: { name: name, email: email, contact: mobile },
+      theme: { color: "#F4CE5D" }
+    };
+    new Razorpay(options).open();
+  };
+
+  window.verifyPayment = function(response) {
+    const csrfName = document.querySelector('meta[name="csrf-token-name"]')?.getAttribute('content') || 'csrf_test_name';
+    const csrfHash = document.querySelector('meta[name="csrf-token-value"]')?.getAttribute('content') || '';
+    const BASE_URL = "https://vyapti.in/public/esdm/public/";
+    let verifyData = {
+      razorpay_payment_id: response.razorpay_payment_id,
+      razorpay_order_id: response.razorpay_order_id,
+      razorpay_signature: response.razorpay_signature
+    };
+    if(csrfHash) verifyData[csrfName] = csrfHash;
+    fetch(BASE_URL + "verify-payment", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(verifyData)
+    })
+    .then(res => res.json())
+    .then(data => {
+      if(data.status === "success") {
+        showToast("Payment Successful! Booking Confirmed", "success");
+        setTimeout(() => { window.location.href = BASE_URL + "payment-success/en"; }, 1500);
+      } else {
+        showToast("Payment Failed. " + (data.message || "Please try again"), "error");
+      }
+    })
+    .catch(() => showToast("Network error during verification", "error"));
+  };
+});
+</script>
+</body>
+</html>
